@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {
+  font-family: "Arial", sans-serif;
+}
+
+.sidenav {
+    width: 230px;
+    /*position: fixed;*/
+    z-index: 1;
+    top: 0px;
+    text-indent: 5px;
+    /*margin-top: 15px;*/
+    left: 5px;
+    margin-right: 5px;
+    background:grey;
+    overflow-x: hidden;
+    padding: 0px 0px;
+    font-family: "Tahoma", sans-serif;
+    font-size: 18px;  
+}
+
+.main {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    margin-left: 5px; 
+    margin-right: 5px;
+    left: 240px; /* Same width as the sidebar + left position in px */
+    /*margin-top: 10px;*/
+    font-size: 16px; /* Increased text to enable scrolling */
+    padding: 0px 0px;
+    background-color: lightgray;
+    width: 80%;
+}
+
+.sidenav a {
+    padding: 0px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black; /* #2196F3;*/
+    display: block;
+    text-indent: 5px;
+}
+
+.sidenav a:hover {
+    color: yellow; /* #064579;*/
+}
+
+.sidenav li {
+    text-indent: 5px;
+}
+
+.sidenav.li {
+    text-indent: 5px;
+}
+
+li {
+    text-indent: 5px;
+}
+
+.lev2 {
+    color: navy;
+    font-size: 12px;
+}
+
+.lev3 {
+    color: black;
+    font-size: 10px;
+}
+
+.rosso {
+    color: red;
+    font-size: 16px;
+}
+
+.hint {
+    color: midnightblue;
+    font-size: 12px;
+}
+
+.voce {
+    color: blue;
+    font-size: 14px;
+}
+
+h1 {
+    background-color: teal;
+    color: cornsilk;
+}
+
+h2 {
+    background-color: darkslategrey;
+    color:floralwhite;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <script>
+        function azioni(nome,inizio) {
+        var txt = "";
+               
+            txt =  "<button onclick=\"document.location = '#" + inizio + "'\">inizio argomento</button>";
+            txt += "<button onclick=\"document.location = '#start'\">menu</button>";
+            txt += "<button onclick=\"document.location = '#approfs'\">approfondimenti</button>";
+            txt += "<button onclick=\"document.location = '#args'\">argomenti</button>";
+            document.getElementById(nome).innerHTML = txt;
+        }
+    </script>
+    
+
+<div class="sidenav">
+<h2 id="start">Prod</h2>
+<ul>
+    <li><a href="#prem">premessa importante</a></li>
+    <li><a href="#info">informazioni generali</a></li>
+    <li><a href="#menu">la videata principale</a></li>
+    <li><a href="#arch">archivi</a></li>
+    <ul>
+        <li><a href="#arch_cli" class="lev2">clienti</a></li>
+        <ul>
+            <li class="lev3"><a href="#arch_cli_gest">gestione</a></li>
+            <li class="lev3"><a href="#arch_cli_elen">elenco</a></li>
+        </ul>
+        <li class="lev2"><a href="#arch_for">fornitori</a></li>
+        <ul>
+            <li class="lev3"><a href="#arch_cli_gest">gestione</a></li>
+            <li class="lev3"><a href="#arch_cli_elen">elenco</a></li>
+        </ul>
+    </ul>
+
+    <li><a href="#off">offerte a clienti</a></li>
+    <ul>
+        <li class="lev2"><a href="#off_ges">gestione</a></li>
+        <li class="lev2"><a href="#off_res">resoconti</a></li>
+    </ul>
+        
+    <li><a href="#oc">ordini clienti</a></li>
+    <ul>
+        <li class="lev2"><a href="#oc_ges">gestione</a></li>
+        <li class="lev2"><a href="#oc_res">resoconti</a></li>
+        <li class="lev2"><a href="#oc_car_ccos">carico centri di costo</a></li>
+        <li class="lev2"><a href="#oc_car_macc">carico macchine</a></li>
+        <li class="lev2"><a href="#oc_cap">capacità produttiva</a></li>
+        <ul>
+            <li class="lev3"><a href="#oc_cap_ccos">centri di costo</a></li>
+            <li class="lev3"><a href="#oc_cap_macc">macchine</a></li>
+        </ul>
+        <li class="lev2"><a href="#oc_sitlav">situazione ed assegnazione lavori</a></li>
+        <li class="lev2"><a href="#oc_tempi">tempi di lavorazione</a></li>
+    </ul>
+
+    <li><a href="#oa">ordini di acquisto</a></li>
+    <ul>
+        <li class="lev2"><a href="#oa_ges">gestione</a></li>
+        <li class="lev2"><a href="#oa_res">resoconti</a></li>
+        <li class="lev2"><a href="#oa_trasp">ordini di trasporto</a></li>
+        <li class="lev2"><a href="#oa_eltrasp">elenco ordini trasporto</a></li>
+    </ul>
+
+    <li><a href="#mag">magazzino</a></li>
+    <ul>
+        <li class="lev2"><a href="#mag_ges">movimenti magazzino</a></li>
+        <li class="lev2"><a href="#mag_res">resoconti magazzino</a></li>
+    </ul>
+
+    <li><a href="#nc">non conformità</a></li>
+
+    <li><a href="#manut">manutenzioni</a></li>
+
+    <li><a href="#indic">indicatori</a></li>
+
+    <li><a href="#util">utilità</a></li>
+    <ul>
+        <li class="lev2"><a href="#ut_avv">gestione avvisi Infomarpa</a></li>
+        <li class="lev2"><a href="#ut_cfg">configurazioni</a></li>
+        <li class="lev2"><a href="#ut_str">strumenti</a></li>
+        <ul>
+            <li class="lev3"><a href="#ut_str_ext">monitor esterno</a></li>
+            <li class="lev3"><a href="#ut_str_imm">ridimensionamento immagini</a></li>
+            <li class="lev3"><a href="#ut_str_rad">raddoppia valori X e Y in file</a></li>
+            <li class="lev3"><a href="#ut_str_inf">informazioni di sistema</a></li>
+        </ul>
+        <li class="lev2"><a href="#ut_anno">cambio anno</a></li>
+        <li class="lev2"><a href="#ut_info">info</a></li>
+    </ul>
+
+    <li><a href="#usc">uscita</a></li>
+
+    <hr>
+    <h3 id="approf">approfondimenti</h3>
+    <li><a href="#fmtdocs">formato documenti</a></li>
+    <li><a href="#come">come fare per...</a></li>
+    <li><a href="#forse">forse non sapete che...</a></li>
+    <!-- <li><a href="#faq">FAQ (Frequently Asked Questions, cioè: domande frequenti></a></li> -->
+
+    <hr>
+    <h3 id="mod">moduli aggiuntivi</h3>
+    <li><a href="#mod_macc">lavorazioni alla macchina</a></li>
+    <li><a href="#mod_info">pannello informativo esterno</a></li>
+    <li><a href="#mod_agg_sw">aggiornamento software</a></li>
+
+    <hr>
+    <h3 id="arg">argomenti</h3>
+    <li><a href="#comm">commesse</a></li>
+    <li><a href="#car">caricamento dati</a></li>
+    <li><a href="#stampe">stampe</a></li>
+
+ </ul>
+
+</div>
+
+<!-- testi: -->
+
+<div id="scelte"></div>
+
+
+<div class="main">
+
+    <div id="prem">
+    <h2>premessa importante</h2>
+    <p>
+        Questa guida tratta di Prod, software per la gestione della produzione (come si intuisce dal nome!), 
+    le cui caratteristiche principali sono illustrate nel paragrafo <a href="#info">informazioni generali</a>.
+    Eviterò di soffermarmi su particolari evidenti, tipo "fare clic sulla X in alto a destra per chiudere la finestra"
+    oppure "nella gestione clienti si trovano le anagrafiche dei clienti" (ma va?).<br>
+    Il software è stato sviluppato per essere quanto più possibile <i>user friendly</i> ma nonostante ciò 
+    alcune operazioni sono così trasparenti da non essere evidenti oppure possono sembrare evidenti a me ma non a chi legge e me ne scuso.<br>
+    Le poche abbreviazioni utilizzate sono queste:
+    <ul>
+        <li>OC = Ordine Cliente</li>
+        <li>OA = Ordine di Acquisto</li>
+        <li>DdT = Documento di Trasporto</li>
+        <li>PC = computer (Personal Computer)</li>
+    </ul>
+    </p>
+    <div id="az1"></div><script>azioni("az1","prem");</script>
+    <!-- <button onclick="document.location = '#prem'">inizio argomento</button>
+    <button onclick="document.location = '#start'">menu</button>
+    <button onclick="document.location = '#approf'">approfondimenti</button>
+    <button onclick="document.location = '#arg'">argomenti</button> -->
+    </div>
+
+    <div id="info">
+    <h2>informazioni generali</h2>
+    <p>
+        Come si intuisce dal nome, Prod è ideato per gestire la produzione, in particolare di un'azienda metalmeccanica.
+    Produzione in senso molto lato, perché molte operazioni sono collegate e la produzione non si preoccupa solo di sfornare pezzi
+    ma di controllare i fabbisogni, i tempi di lavorazione, la situazione degli ordini e via dicendo. 
+    Si fa prima dire quello che Prod non fa: non fa amministrazione (fatture e contabilità; attualmente non vengono gestiti i d.d.t.
+    ma sono in progetto), non fa il caffè, non parla, ma per il resto direi che fa un po' tutto (ok, ho esagerato un pochino... ;-) ).<br>
+    <p>Alcune forse noiose ma necessarie premesse "tecniche": il software "gira" su sistema operativo Windows,
+    è stato testato nelle versioni 7 e 10. <span class="rosso">Importante: è necessario un monitor che abbia una risoluzione
+    di 1920x1080 pixels</span>. Il database è un Postgresql versione 8.3 ma i dati possono essere portati fino all'attuale versione 12.
+    L'installazione del client richiede pochi mega su disco; anche quella su server non è molto ingombrante. 
+    Le dimensioni dal database crescono ovviamente a seconda dei dati caricati ma tenete presente che caricando parecchie immagini raggiungono facilmente qualche giga (attualmente circa 8Gb).<br>
+    Il software è sviluppato in parte in Delphi ed in parte in Lazarus, entrambi evoluzioni del Pascal. Utilizzatori di questi linguaggi sono la NASA, l'European Space Agency e la Disney
+    ed il software più conosciuto sviluppato in Delphi è Skype.</p>
+    <p>Un breve elenco delle funzionalità principali:<br>
+        <ul>
+        <li><b>offerte</b>: non solo l'archiviazione per avere uno storico ma l'invio via mail, la creazione di revisioni dell'offerta e la trasformazione (si spera!) in ordine.
+        <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#off">offerte</a></li>
+        <li><b>ordini clienti</b>: rappresenta il cuore di Prod. Tutte le altre operazioni sono collegate in qualche modo
+            alla gestione degli ordini: le offerte da cui origina l'ordine, le lavorazioni che da esso derivano, gli ordini d'acquisto per il fabbisogno di produzione,
+            le non conformità, i tempi di lavorazione, i trasporti e molto altro. <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#oc">ordini clienti</a></li>
+        <li><b>ordini di acquisto</b>: spesso collegati all'ordine cliente, danno soprattutto il resoconto di quanto deve ancora arrivare e di quanto è stato speso per l'ordine cliente.
+            <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#oa">ordini di acquisto</a></li>
+        <li><b>ordini di trasporto</b>: offrono l'opportunità di raccogliere diverse offerte per un trasporto e di collegarne il costo all'ordine cliente.</li>
+        <li><b>magazzino</b>: registra tutte le uscite ed entrate di materiale. <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#mag">magazzino</a></li>
+        <li><b>non conformità</b>: vengono registrati tutti gli "errori" sia interni che da fornitori o da clienti; in quest'ultimo caso sarà poi possibile quantificarli.
+            <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#nc">non conformità</a></li>
+        <li><b>manutenzioni</b>: interventi ai macchinari. <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#manut">manutenzioni</a></li>
+        <li><b>indicatori</b>: danno una serie di resoconti sull'attività, dagli ordini clienti, alle non conformità, entrate ed uscite e molto altro.
+            <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#indic">indicatori</a></li>
+        <li>software in <a href="mod_macc">moduli esterni</a> a fianco delle macchine per la raccolta dei tempi ed invio di informazioni</li>
+        </ul>
+    </p>
+    <div id="az2"></div><script>azioni("az2","info");</script>
+    </div>
+        
+    <div id="menu">
+    <h2>la videata principale</h2>
+    <p>
+        Appena lanciato Prod, si presenta questa videata:<br><br>
+        <img src="videata_princ.jpg" alt="videata principale"><br><br>
+        Cosa si può fare da qui?<br>
+        <ul>
+            <li>lanciare una voce del menu:</li>
+            <img src="menu_videata_princ.jpg" alt="menu videata principale">
+            <br><br>
+
+            <li>fare clic col tasto destro per accedere ad una voce del menu:</li>
+            <img src="menu_dx.jpg" alt="menu \"testo destro\""">
+            <br><br>
+
+            <li>avere subito l'elenco degli OA scaduti (compreso il giorno corrente):</li>
+            <img src="menu_princ_oa.jpg" alt="elenco OA"><br><br>
+            Importante notare che <scan class="rosso">vengono riportati inizialmente solo gli OA con una data di prevista consegna</scan>; 
+            per elencare anche quelli che ne sono privi bisogna spuntare la casella "anche OA senza data consegna" (evidenziata nell'immagine riportata qui sopra).
+            Un'altra funzionalità utile sono i pulsanti "giorno precedente", "giorno successivo" e "oggi" in alto a destra:
+            ad es. se un OA non viene elencato, fare un clic su "giorno successivo" per far considerare gli OA con scadenza fino a domani e scoprire così che la consegna è prevista per domani;
+            ad ogni clic si incrementa di un giorno. Per tornare alla situzione odierna fare clic su "oggi".
+            Gli ordini in scadenza oggi sono riportati con un colore diverso dagli altri.
+            <br><br>
+
+            <li>avere la situzione delle commesse scadute:</li>
+            <img src="sit_comm.jpg" alt="commesse scadute"><br><br>
+            Vengono elencate tutte le commesse scadute (con consegna concordata fino ad oggi compreso); 
+            per ognuna vengono elencate le lavorazioni previste con relativa situazione:<br>
+                <ul>
+                    <li>lavorazioni interne:</li>
+                    <ul>
+                        <li>non eseguite</li>
+                        <li>iniziate o eseguite</li>
+                    </ul>
+                </ul>
+                <ul>
+                    <li>lavorazioni esterne:</li>
+                    <ul>
+                        <li>non ancora uscite</li>
+                        <li>uscite e non rientrate</li>
+                        <li>uscite e rientrate</li>
+                    </ul>
+                </ul>
+            Posizionandosi con un clic su una commessa è possibile:<br>
+            <ul>
+                <li>richiamare il disegno</li>
+                <li>richiamare l'OC</li>
+                <li>elencare gli OA riferiti alla commessa</li>
+            </ul>
+            <br>
+            
+            <li>visualizzare l'elenco della merce in arrivo, in partenza e da ritirare.</li>
+            <br>
+
+            <li>sapere chi è assente oggi e chi ha comunicato assenza in futuro</li>
+            <br>
+
+            <li>visualizzare avvisi per tutti gli utenti di Prod, per il monitor esterno e solo per l'operatore corrente</li>
+            Nella sezione "gestione info" è possibile caricare un messaggio che sarà, a seconda della destinazione scelta:<br>
+            <ul>
+                <li>visualizzato da tutti gli utenti che usano Prod</li>
+                <li>visualizzato solo nella sezione avvisi del monitor informativo esterno</li>
+                <li>visulizzato solo per l'utente di Prod selezionato</li>
+            </ul>
+            <br>
+
+            <li>consultare l'elenco delle offerte a clienti aperte:</li>
+            <img src="off_aperte.jpg" alt="offerte aperte"><br><br>
+            Vengono elencate tutte le offerte emesse a clienti non concluse. Vengono evidenziate quelle che devono essere richiamate e quelle che sono già statae richiamate almeno una volta;
+            facendo clic su una di queste due legende si filtra l'elenco in modo che riporti solo quelle del tipo scelto. Per tornare all'elenco generale fare clic su "elencare tutto".<br>
+            <br>
+
+            <li>sapere quale merce è stata mandata in conto lavoro e non è rientrata:</li>
+            <img src="menu_princ_lav_fuori.jpg" alt="lavorazioni non rientrate"><br><br>
+            Capita spesso di chiedersi "ma la merce inviata al tal fornitore è rientrata?", "quando l'ho inviata?", "con quale DdT?", "per quando è prevista la consegna?".
+            Questo elenco dà la risposta a tutte queste domande, evidenziato i ritiri scaduti (la merce dovrebbe essere già pronta per il ritiro),
+            quelli che saranno pronti a breve oppure più avanti. Facendo doppio clic su una riga si richiama l'OC che l'ha generata.
+            <br><br>
+
+            <li>avere l'elenco di tutte le lavorazioni scadute fino ad oggi compreso</li>
+            <br>
+
+            <li>sapere qual è l'anno corrente impostato (vedere <a href="#ut_anno">cambio anno</a>):</li>
+            <img src="anno.jpg" alt="anno">
+            <br><br>
+
+            <li>sapere qual è l'utente che ha effettuato il login:</li>
+            <img src="utente.jpg" alt="utente"><br>
+            E' importante che corrisponda a chi sta attualmente utilizzando il PC perché per alcune operazioni viene registrato l'autore
+            e per l'invio mail viene prelevata la firma dell'utente corrente.
+            <br><br>
+
+            <li>sapere se la versione di Prod che si sta usando è aggiornata:</li>
+            <img src="vers_agg.jpg" alt="versione">&emsp;<img src="vers_non_agg.jpg" alt="versione"><br>
+            Se la versione in uso non è aggiornata, Prod può spesso essere comunque usato ad eccezione di aggiornamenti critici che ne peossono pregiudicare il fuznionamento.
+            Si consiglia comunque di aggiornarlo sempre seguendo la procedura descritta nella sezione <a href="#mod_agg_sw">moduli aggiuntivi</a>.
+            <br><br>
+
+            <li>ottenere informazioni sul giorno corrente:</li>
+            <img src="data.jpg" alt="data"><br>
+            <br>
+
+            <li>ottenere informazioni sulle consegne delle 3 più importanti aziende del gruppo Danieli:</li>
+            <img src="danieli.jpg" alt="Danieli"><br>
+            <br>
+
+            <li>avere la situazione esatta in tempo reale delle lavorazioni in corso:</li>
+            <img src="menu_princ_sit_lav.jpg" alt="lavorazioni in corso"><br>
+            I dati vengono aggiornati in tempo reale e riportano l'esatta situazione di quello che sta avvenendo nel reparto produzione.
+            Per ogni macchina viene indicato il nome dell'operatore, il lavoro che sta facendo e da quando è iniziato e gli altri lavori fatti e conclusi nella giornata.
+            Se la macchina non sta attualmente lavorando, viene evidenziata la scritta <scan class="rosso">INATTIVA</scan>.
+            In fondo a sinistra vengono riportati i nomi degli operatori assenti oggi, subito dopo l'elenco degli operatori presenti ma senza attività al momento in essere
+            ed infine gli operatori che stanno eseguendo lavorazioni che non richiedono l'impiego delle macchine (ad esempio imballo o verniciatura).
+            La posizione delle macchine nella videata rispecchia quella reale del reparto produzione; con il mouse è possibile spostarle
+            e ridimensionarle in altezza e larghezza. Queste variazioni verranno memorizzate e mantenute per l'accesso successivo.
+            I dati qui rappresentati vengono raccolti in tempo reale dai moduli aggiuntivi di Prod dei PC installati presso le macchine.<br>
+            Per avere un elenco di tutti i lavori aperti, di quelli in fase di esecuzione, di quelli completati oggi e nei giorni precedenti,
+            fare clic sul pulsante "lavori aperti" in alto:<br>
+            <img src="menu_princ_sit_lav_open.jpg" alt="lavori aperti"><br>
+            <br>
+
+            <li>avere un resoconto sul carico macchine:</li>
+            <img src="car_macc.jpg" alt="carico macchine"><br>
+            <br>
+
+        </ul>
+    </p>
+    <div id="az3"></div><script>azioni("az3","menu");</script>
+    </div>
+            
+    <div id="arch">
+    <h2>archivi</h2>
+    <p>
+        In questa sezione vengono gestiti tutti i dati che verranno poi richiamati nelle altre sezione di Prod.
+    Non si tratta di semplice archiviazione ma questi dati possono venire gestiti nel modo più ampio possibile:
+    ad esempio da clienti e fornitori può essere inviata direttamente una mail a vari referenti, 
+    ad ognuno possono essere associati numerosi documenti scannerizzati (v. <a href="#fmtdocs")>formato documenti</a>),
+    si possono effettuare ricerche qualsi per ogni campo, possono essere stese ampie note, ecc.
+    </p>
+    <div id="az4"></div><script>azioni("az4","arch");</script>
+
+    <br>
+    <div id="off">
+    <h2>offerte a clienti</h2>
+    <p>
+        E' utile archiviare le offerte fatte ai clienti per avere un documento di riferimento quando l'offerta (si spera) diventerà ordine,
+        per avere un resoconto sulla percentuale di offerte che si trasformano in ordini e per avere un promemoria sulle offerte da cui sollecitare una risposta.<br>
+        E' possibile "versionare" un'offerta, partendo cioè dall'offerta iniziale si possono portare delle variazioni tenendo però traccia dei cambiamenti.
+    </p>
+    <div id="az5"></div><script>azioni("az5","off");</script>
+    </div>
+
+    <!-- <h2 id="oc">Ordini clienti</h2> -->
+    <div id="oc">
+    <h2>ordini clienti</h2>
+    <p>
+        ...in fase di sviluppo...
+    </p>
+    <div id="az6"></div><script>azioni("az6","oc");</script>
+    </div>
+
+    <div id="oa">
+    <h2>ordini di acquisto</h2>
+    <p>
+            ...in fase di sviluppo...
+    </p>
+    <div id="az7"></div><script>azioni("az7","oa");</script>
+    </div>
+
+    <div id="mag">
+        <h2>magazzino</h2>
+        <p>
+            ...in fase di sviluppo...
+        </p>
+        <div id="az8"></div><script>azioni("az8","mag");</script>
+    </div>
+
+    <div id="nc">
+        <h2>non conformità</h2>
+        <p>
+            ...in fase di sviluppo...
+        </p>
+        <div id="az9"></div><script>azioni("az9","nc");</script>
+    </div>
+
+    <div id="manut">
+        <h2>manutenzioni</h2>
+        <p>
+            ...in fase di sviluppo...
+        </p>
+        <div id="az10"></div><script>azioni("az10","manut");</script>
+    </div>
+
+    <div id="indic">
+        <h2>indicatori</h2>
+        <p>
+            ...in fase di sviluppo...
+        </p>
+        <div id="az11"></div><script>azioni("az11","indic");</script>
+    </div>
+
+    <div id="util">
+        <h2>utilità</h2>
+        <p>
+            <div id="ut_anno">
+            <h3>cambio anno</h3>
+            Per <i>anno corrente</i> si intende l'anno su cui si sta lavorando, usualmente corrispondente all'anno in corso
+            ma per comodità può essere anche l'anno appena trascorso.<br>
+            Non è mportante né necessario che l'anno di Prod sia impostato sull'esatto anno corrente, 
+            l'utilità sta solo nel rendere più semplice e veloce la ricerca
+            come indicato in <a href="#rich_oc_oa"><span class="voce">E' possibile richiamare un ordine clienti o fornitori senza indicare l'anno davanti al progressivo</a></span>
+            </div>
+        </p>
+        <div id="az12"></div><script>azioni("az12","util");</script>
+    </div>
+
+    <hr>
+
+    <h1 id="approfs">approfondimenti</h1>
+
+    <div id="fmtdocs">
+    <h2>formato documenti</h2>
+    <p>
+        I documenti gestiti in Prod possono essere di qualsiasi tipo previsto nel PC in cui è installato.
+        Più chiaramente: si possono allegare PDF a clienti e fornitori purché sia installato Acrobat Reader o software equivalente;
+        si possono associare disegni in TIFF purché ci sia un softare in grado di leggerli. <br>
+        Disegni ed immagini sono stati testati
+        con i formati JPG, TIFF, PNG, BMP ma si possono gestire tutti quelli previsti dal software installato.
+        I file AutoCAD (.DWG) possono essere gestiti pureché, ancora una volta sia installato AutoCAD o un software AutoCAD reader
+        ma sono sconsigliati perché in genere l'apertura di questo tipo di file è piuttosto lenta.<br>
+        Stesso discorso per i testi: Prod è stato usato con .DOC, .DOCX., .ODT purché siano installati nel PC in uso i rispettivi softare in grado di leggerli.<br>
+        Possono essere gestiti anche fogli elettronici come .XLS e .ODS.
+        <span class="rosso">Importante: i documenti associati (ad esempio a clienti e fornitori) possono essere
+        letti, stampati e salvati ma non modificati; le modifiche apportate andranno perse.</span>
+    </p>
+    <div id="az13"></div><script>azioni("az13","fmtdocs");</script>
+    </div>
+
+    <div id="come">
+    <h2>come fare per...</h2>
+    <p>
+        <ul>
+            <li><h3>...uscire da Prod senza dover chiudere ogni singola finestra.</h3>
+            Talvolta è necessario chiudere parecchie finestre prima di arrivare alla videata principale per uscire da Prod
+            ma c'è un metodo veloce per farlo immediatamente: fare clic col tasto destro e poi fare cli su <span class="voce">esci da Prod</span>:<br>
+            <img src="esci.jpg" alt="uscire da Prod"><br>
+            E' sempre bene uscire completamente da Prod prima di spegnere il PC o prima dell'effettuazione di un backup automatico.
+            </li>
+        </ul>
+    </p>
+    <div id="az14"></div><script>azioni("az14","come");</script>
+    </div>
+
+    <div id="forse">
+    <h2>forse non sapete che...</h2>
+    <p>
+        <ul>
+            <li><h3 id="rich_oc_oa">...è possibile richiamare un ordine clienti o fornitori senza indicare l'anno davanti al progressivo.</h3>
+            Ad esempio, se l'anno correnteè 2020, per cercare l'ordine 2020123 è possibile indicare solo 123 e per cercare l'ordine 2020003 è possibile indicare solo 3.
+            Questo solo se l'ordine ricercato fa parte dell'anno correntemente in corso (v. <a href="#ut_anno">cambio anno</a>).
+            Se l'ordine ricercato è dell'anno precedente a quello in corso, se ne può indicare comunque solo il progressivo preceduta del simbolo "-"" (<i>meno</i>).
+            Ad esempio, se l'anno corrente è 2020, per cercare 2019123 indicare -123 e per cercare l'ordine 2019003 indicare -3.
+            </li>
+
+            <li><h3>...è possibile risalire immediatamente al numero di settimana corrente.</h3>
+            Senza consultare calendari che non riportano mai il numero della settimana, nella videata principale sono riportati
+            sia il numero del giorno che della settimana correnti:<br>
+            <img src="sett.jpg" alt="settimana corrente">
+            </li>
+
+            <li><h3>...è possibile effettuare la ricerca di un nominativo contemporaneamente tra clienti e fornitori.</h3>
+            Se non si è certi che il nominativo che si sta cercando sia un cliento od un fornitore, 
+            dai rispettivi archivi si può effettuare la ricerca con questa icona:<br>
+            <img src="clienti_cerca_cli_for.jpg" alt="ricerca nominativo"><br>
+            Una volta selezionato il nominativo dall'elenco, Prod si posizionerà automaticamente nell'archivio giusto.
+            </li>
+
+            <li><h3>...è possibile individuare automaticamente il cliente od il fornitore su Google Maps.</h3>
+            Semplicemente facendo clic sull'omonimo pulsante:<br>
+            <img src="clienti_maps.jpg" alt="Google maps"><br>
+            verrà lanciato Google Maps posizionato sulla località del nominativo attualmente visulizzato.
+            I dati del nominativo devono essere naturalmente descritti con esattezza ed il PC su cui si lavora deve avere accesso ad internet con un browser adeguato.
+            </li>
+
+        </ul>
+    </p>
+    <div id="az15"></div><script>azioni("az15","forse");</script>
+    </div>
+
+    <!-- <div id="faq">
+    <h2>FAQ (Frequently Asked Questions, cioè: domande frequenti></h2>
+    <p>
+        ...in fase di sviluppo...
+    </p>
+    <button onclick="document.location = '#faq'">inizio argomento</button>
+    <button onclick="document.location = '#start'">menu</button>
+    <button onclick="document.location = '#approf'">approfondimenti</button>
+    <button onclick="document.location = '#arg'">argomenti</button>
+    </div> -->
+    
+    <hr>
+
+    <h1 id="mods">moduli esterni</h1>
+
+    <div id="mod_macc">
+    <h2>lavorazioni alla macchina</h2>
+    <p>
+        ...in fase di sviluppo...
+    </p>
+    <div id="az16"></div><script>azioni("az16","mod_macc");</script>
+    </div>
+
+    <div id="mod_info">
+    <h2>pannello informativo esterno</h2>
+    <p>
+        ...in fase di sviluppo...
+    </p>
+    <div id="az17"></div><script>azioni("az17","mod_info");</script>
+    </div>
+
+    <div id="mod_agg_sw">
+    <h2>aggiornamento software</h2>
+    <p>
+        ...in fase di sviluppo...
+    </p>
+    <div id="az18"></div><script>azioni("az18","mod_agg_sw");</script>
+    </div>
+
+    <h1 id="args">argomenti</h1>
+
+    <div id="comm">
+    <h2>commesse</h2>
+    <p>
+        ...in fase di sviluppo...
+    </p>
+    <div id="az19"></div><script>azioni("az19","comm");</script>
+    </div>
+
+    <div id="car">
+    <h2>caricamento dati</h2>
+    <p>
+        ...in fase di sviluppo...
+    </p>
+    <div id="az20"></div><script>azioni("az20","car");</script>
+    </div>
+
+    <div id="stampe">
+    <h2>stampe</h2>
+    <p>
+        ...in fase di sviluppo...
+    </p>
+    <div id="az21"></div><script>azioni("az21","stampe");</script>
+    </div>
+
+</div> <!-- main -->
+ 
+</body>
+
+<!-- --- last az: 21 -->
+
+</html> 
