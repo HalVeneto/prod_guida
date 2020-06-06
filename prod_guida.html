@@ -459,9 +459,12 @@ window.onclick = function(event) {
         Questa guida tratta di Prod, software per la gestione della produzione (come si intuisce dal nome!), 
     le cui caratteristiche principali sono illustrate nel paragrafo <a href="#info">informazioni generali</a>.
     Eviter&ograve; di soffermarmi su particolari evidenti, tipo "fare clic sulla X in alto a destra per chiudere la finestra"
-    oppure "nella gestione clienti si trovano le anagrafiche dei clienti" (ma va?).<br>
+    oppure "nella gestione clienti si trovano le anagrafiche dei clienti".<br>
     Il software &egrave; stato sviluppato per essere quanto pi&ugrave; possibile <i>user friendly</i> ma nonostante ci&ograve; 
-    alcune operazioni sono cos&igrave; trasparenti da non essere evidenti oppure possono sembrare evidenti a me ma non a chi legge e me ne scuso.<br>
+    alcune operazioni sono cos&igrave; trasparenti da non essere evidenti oppure non è stato possibile renderle immediatamente intuitive.<br>
+    L'unica cosa "nascosta" ma utilissima è l'<span class="rosso">uso del tasto destro del mouse</span>: 
+    in qualsiasi punto del programma è possibile richiamare il menu generale per accedere ad una sua parte senza dover chiudere o ridurre ad icona quello che si sta facendo:<br>
+    <img src="menu_dx.jpg" alt="menu dx"><br>
     Le poche abbreviazioni utilizzate sono queste:
     <ul>
         <li>OC = Ordine Cliente</li>
@@ -482,35 +485,63 @@ window.onclick = function(event) {
     <p>
         Come si intuisce dal nome, Prod &egrave; ideato per gestire la produzione, in particolare di un'azienda metalmeccanica.
     Produzione in senso molto lato, perch&eacute; molte operazioni sono collegate e la produzione non si preoccupa solo di sfornare pezzi
-    ma di controllare i fabbisogni, i tempi di lavorazione, la situazione degli ordini e via dicendo. 
+    ma di controllare gli ordini, le lavorazioni, gli acquisti, le consegne e via dicendo. 
     Si fa prima dire quello che Prod non fa: non fa amministrazione (fatture e contabilit&agrave;; attualmente non vengono gestiti i d.d.t.
-    ma sono in progetto), non fa il caff&egrave;, non parla, ma per il resto direi che fa un po' tutto (ok, ho esagerato un pochino... ;-) ).<br>
-    <p>Alcune forse noiose ma necessarie premesse "tecniche": il software "gira" su sistema operativo Windows,
-    &egrave; stato testato nelle versioni 7 e 10. <span class="rosso">Importante: &egrave; necessario un monitor che abbia una risoluzione
-    di 1920x1080 pixels</span>. Il database &egrave; un Postgresql versione 8.3 ma i dati possono essere portati fino all'attuale versione 12.
-    L'installazione del client richiede pochi mega su disco; anche quella su server non &egrave; molto ingombrante. 
-    Le dimensioni dal database crescono ovviamente a seconda dei dati caricati ma tenete presente che caricando parecchie immagini raggiungono facilmente qualche giga (attualmente circa 8Gb).<br>
-    Il software &egrave; sviluppato in parte in Delphi ed in parte in Lazarus, entrambi evoluzioni del Pascal. Utilizzatori di questi linguaggi sono la NASA, l'European Space Agency e la Disney
-    ed il software pi&ugrave; conosciuto sviluppato in Delphi &egrave; Skype.</p>
+    ma sono in progetto), non fa il caff&egrave;, non parla, ma per il resto direi che fa un po' tutto (!) ;-).<br>
+    Una peculiarità importante consiste nella possibilit&agrave; di associare a vari elementi (clienti, fornitori, ordini, ecc.) note libere ed allegati di vario genere 
+    in modo da avere subito tutto a disposizione senza "carte" n&eacute; ricerche all'esterno del software.
+
     <p>Un breve elenco delle funzionalit&agrave; principali:<br>
         <ul>
-        <li><b>offerte</b>: non solo l'archiviazione per avere uno storico ma l'invio via mail, la creazione di revisioni dell'offerta e la trasformazione (si spera!) in ordine.
-        <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#off">offerte</a></li>
-        <li><b>ordini clienti</b>: rappresenta il cuore di Prod. Tutte le altre operazioni sono collegate in qualche modo
+        <li><b><a href="#off">offerte ai clienti</a></b>: non solo l'archiviazione per avere uno storico ma l'invio via mail, la creazione di revisioni dell'offerta e la trasformazione (si spera!) in ordine.
+            &Egrave; possibile avere resoconti sulle offerte diventate ordini, su quelle aperte e quelle da richiamare.
+        </li>
+        <li><b><a href="#oc">ordini clienti</a></b>: rappresenta il cuore di Prod. Tutte le altre operazioni sono collegate in qualche modo
             alla gestione degli ordini: le offerte da cui origina l'ordine, le lavorazioni che da esso derivano, gli ordini d'acquisto per il fabbisogno di produzione,
-            le non conformit&agrave;, i tempi di lavorazione, i trasporti e molto altro. <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#oc">ordini clienti</a></li>
-        <li><b>ordini di acquisto</b>: spesso collegati all'ordine cliente, danno soprattutto il resoconto di quanto deve ancora arrivare e di quanto &egrave; stato speso per l'ordine cliente.
-            <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#oa">ordini di acquisto</a></li>
-        <li><b>ordini di trasporto</b>: offrono l'opportunit&agrave; di raccogliere diverse offerte per un trasporto e di collegarne il costo all'ordine cliente.</li>
-        <li><b>magazzino</b>: registra tutte le uscite ed entrate di materiale. <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#mag">magazzino</a></li>
-        <li><b>non conformit&agrave;</b>: vengono registrati tutti gli "errori" sia interni che da fornitori o da clienti; in quest'ultimo caso sar&agrave; poi possibile quantificarli.
-            <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#nc">non conformit&agrave;</a></li>
-        <li><b>manutenzioni</b>: interventi ai macchinari. <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#manut">manutenzioni</a></li>
-        <li><b>indicatori</b>: danno una serie di resoconti sull'attivit&agrave;, dagli ordini clienti, alle non conformit&agrave;, entrate ed uscite e molto altro.
-            <span class="hint">Per approfondimenti consultare la relativa sezione</span> <a href="#indic">indicatori</a></li>
-        <li>software in <a href="mod_macc">moduli esterni</a> a fianco delle macchine per la raccolta dei tempi ed invio di informazioni</li>
+            le non conformit&agrave;, i tempi di lavorazione, i conti lavoro esterni e la loro situazione, i trasporti e molto altro.
+            Gli ordini prevedono l'archiviazione di tutti i dati che concorrono alla sua definizione: riferimenti interni, riferimenti del cliente,
+            note libere, allegati di qualsiasi tipo (vedere <a href="#fmtdocs">formato documenti</a></li>") e via dicendo.
+            Dagli ordini so possono ricavare numerosissimi resoconti e statistiche, cito solo la resa delle commesse, i confronti tra tempi preventivati e consuntivati,
+            l'elenco e quantificazione dei costi sostenuti, la schedulazione teorica e programmata dei lavori, i tempi di consegna e via dicendo.
+        </li>
+        <li><b><a href="#oa">ordini di acquisto</a></b>: spesso collegati all'ordine cliente, danno soprattutto il resoconto di quanto deve ancora arrivare e di quanto &egrave; stato speso per l'ordine cliente.
+            Ogni acquisto pu&ograve; essere collegato ad una singola commessa per quantificarne poi i costi.
+        </li>
+        <li><b><a href="#oa_trasp">ordini di trasporto</a></b>: offrono l'opportunit&agrave; di raccogliere diverse offerte per un trasporto in modo automatico via mail,
+            di consulatare lo storico per trasporti analoghi e di collegarne il costo all'ordine cliente.
+        </li>
+        <li><b><a href="#mag">magazzino</a></b>: registra le uscite ed entrate di materiale, particolarmente utile per tracciare queste operazioni 
+            ed ancor pi&grave; per ottenere la situazioni dei conto lavoro esterni (usciti e/o rientrati), oltre che per le consegne parziali.
+        </li>
+        <li><b><a href="#nc">non conformit&agrave;</a></b>: vengono registrati tutti gli "errori" sia interni che da fornitori o da clienti; 
+            in quest'ultimo caso sar&agrave; verranno poi quantificati nella valutazione dell'esito degli ordini.
+        </li>
+        <li><b><a href="#manut">manutenzioni</a></b>: interventi ai macchinari. 
+        </li>
+        <li><b><a href="#indic">indicatori</a></b>: danno una serie di resoconti sull'attivit&agrave;, utili sia alla Direzione che al conseguimento e riesame della certificazione ISO (T&Ugrave; in particolare).
+            Aluni esempi di indicatori: rendimento commesse, quantit&agrave; e tempi consegne ai clienti, carico macchine da OC aperti,
+            conformit&agrave; consegne, valutazione automatica fornitori, valorizzazione acquisti e lavorazioni relativi ad ordini aperti e molto altro.
+        </li>
+        <li>software in <a href="mod_macc">moduli esterni</a> a fianco delle macchine per la raccolta dei tempi ed invio di informazioni
+        </li>
         </ul>
     </p>
+
+    <p>Alcune forse noiose ma necessarie informazioni "tecniche": il software "gira" su sistema operativo Windows,
+    &egrave; stato testato nelle versioni 7 e 10. <span class="rosso">Importante: &egrave; necessario un monitor che abbia una risoluzione
+    di 1920x1080 pixels</span>. <br>
+    Il database &egrave; un Postgresql versione 8.3 ma i dati possono essere portati fino alla versione attuale.
+    L'installazione del client richiede pochi mega su disco; anche quella su server non &egrave; molto ingombrante. 
+    Le dimensioni dal database crescono ovviamente a seconda dei dati caricati ma tenete presente che caricando parecchie immagini raggiungono facilmente qualche giga (attualmente circa 8Gb).<br>
+    Il software prevede l'utilizzo in multiutenza in rete locale; il limite &egrave; quello del Postgresql e della "forza" della rete locale; attualmente &egrave; operativo con una quandicina di utenti contemporanei.
+    Può essere utilizzato in rete geografica mediante l'installazione di una VPN; le performance sono date dalla banda di rete, che deve essere buona, e dall'hardware del PC client.
+    Se la VPN, la banda o l'hardware locale costituiscono un problema, pu&ograve; tranquillamente essere utilizzato in remoto mediante un software come AnyDesk.<br>
+    Per la cronaca, il software &egrave; sviluppato in parte in Delphi ed in parte in Lazarus, entrambi evoluzioni del Pascal. Utilizzatori di questi linguaggi sono la NASA, l'European Space Agency e la Disney
+    ed il software pi&ugrave; conosciuto sviluppato in Delphi &egrave; Skype. Il linguaggio non è molto diffuso ma pur avendo una lunga tradizione &grave; tuttora vivissimo e vegetissimo (!)
+    e continuamente aggiornato dalla californiana Embarcadero e da una fitta ed attiva comunità. La sua peculiarità consiste nel poter sviluppare praticamente qualsiasi software
+    ed essere velocissimo nell'esecuzione in quanto non necessita di interpreti; esso inoltre non non necessita di librerie esterne con conseguenti problemi di aggiornamento.</p>
+    </p>
+
     <div id="az2"></div><script>azioni("az2","info");</script>
     </div>
         
@@ -521,15 +552,15 @@ window.onclick = function(event) {
         <img src="videata_princ.jpg" alt="videata principale"><br><br>
         Cosa si pu&ograve; fare da qui?<br>
         <ul>
-            <li>lanciare una voce del menu:</li>
+            <li><b>lanciare una voce del menu:</b></li>
             <img src="menu_videata_princ.jpg" alt="menu videata principale">
             <br><br>
 
-            <li>fare clic col tasto destro per accedere ad una voce del menu:</li>
+            <li><b>fare clic col tasto destro per accedere ad una voce del menu:</b></li>
             <img src="menu_dx.jpg" alt="menu \"testo destro\""">
             <br><br>
 
-            <li>avere subito l'elenco degli OA scaduti (compreso il giorno corrente):</li>
+            <li><b>avere subito l'elenco degli OA scaduti (compreso il giorno corrente):</b></li>
             <img src="menu_princ_oa.jpg" alt="elenco OA"><br><br>
             Importante notare che <scan class="rosso">vengono riportati inizialmente solo gli OA con una data di prevista consegna</scan>; 
             per elencare anche quelli che ne sono privi bisogna spuntare la casella "anche OA senza data consegna" (evidenziata nell'immagine riportata qui sopra).
@@ -539,7 +570,7 @@ window.onclick = function(event) {
             Gli ordini in scadenza oggi sono riportati con un colore diverso dagli altri.
             <br><br>
 
-            <li>avere la situzione delle commesse scadute:</li>
+            <li><b>avere la situzione delle commesse scadute:</b></li>
             <img src="sit_comm.jpg" alt="commesse scadute"><br><br>
             Vengono elencate tutte le commesse scadute (con consegna concordata fino ad oggi compreso); 
             per ognuna vengono elencate le lavorazioni previste con relativa situazione:<br>
@@ -566,13 +597,13 @@ window.onclick = function(event) {
             </ul>
             <br>
             
-            <li>visualizzare l'elenco della merce in arrivo, in partenza e da ritirare.</li>
+            <li><b>visualizzare l'elenco della merce in arrivo, in partenza e da ritirare.</b></li>
             <br>
 
-            <li>sapere chi &egrave; assente oggi e chi ha comunicato assenza in futuro</li>
+            <li><b>sapere chi &egrave; assente oggi e chi ha comunicato assenza in futuro</b></li>
             <br>
 
-            <li>visualizzare avvisi per tutti gli utenti di Prod, per il monitor esterno e solo per l'operatore corrente</li>
+            <li></b>visualizzare avvisi</b> per tutti gli utenti di Prod, per il monitor esterno e solo per l'operatore corrente</li>
             Nella sezione "gestione info" &egrave; possibile caricare un messaggio che sar&agrave;, a seconda della destinazione scelta:<br>
             <ul>
                 <li>visualizzato da tutti gli utenti che usano Prod</li>
@@ -581,47 +612,47 @@ window.onclick = function(event) {
             </ul>
             <br>
 
-            <li>consultare l'elenco delle offerte a clienti aperte:</li>
+            <li><b>consultare l'elenco delle offerte a clienti aperte:</b></li>
             <img src="off_aperte.jpg" alt="offerte aperte"><br><br>
             Vengono elencate tutte le offerte emesse a clienti non concluse. Vengono evidenziate quelle che devono essere richiamate e quelle che sono gi&agrave; statae richiamate almeno una volta;
             facendo clic su una di queste due legende si filtra l'elenco in modo che riporti solo quelle del tipo scelto. Per tornare all'elenco generale fare clic su "elencare tutto".<br>
             <br>
 
-            <li>sapere quale merce &egrave; stata mandata in conto lavoro e non &egrave; rientrata:</li>
+            <li><b>sapere quale merce &egrave; stata mandata in conto lavoro e non &egrave; rientrata:</b></li>
             <img src="menu_princ_lav_fuori.jpg" alt="lavorazioni non rientrate"><br><br>
             Capita spesso di chiedersi "ma la merce inviata al tal fornitore &egrave; rientrata?", "quando l'ho inviata?", "con quale DdT?", "per quando &egrave; prevista la consegna?".
             Questo elenco d&agrave; la risposta a tutte queste domande, evidenziato i ritiri scaduti (la merce dovrebbe essere gi&agrave; pronta per il ritiro),
             quelli che saranno pronti a breve oppure pi&ugrave; avanti. Facendo doppio clic su una riga si richiama l'OC che l'ha generata.
             <br><br>
 
-            <li>avere l'elenco di tutte le lavorazioni scadute fino ad oggi compreso</li>
+            <li><b>avere l'elenco di tutte le lavorazioni scadute fino ad oggi compreso</b></li>
             <br>
 
-            <li>sapere qual &egrave; l'anno corrente impostato (vedere <a href="#ut_anno">cambio anno</a>):</li>
+            <li><b>sapere qual &egrave; l'anno corrente</b> impostato (vedere <a href="#ut_anno">cambio anno</a>):</li>
             <img src="anno.jpg" alt="anno">
             <br><br>
 
-            <li>sapere qual &egrave; l'utente che ha effettuato il login:</li>
+            <li><b>sapere qual &egrave; l'utente che ha effettuato il login</b>:</li>
             <img src="utente.jpg" alt="utente"><br>
             E' importante che corrisponda a chi sta attualmente utilizzando il PC perch&eacute; per alcune operazioni viene registrato l'autore
             e per l'invio mail viene prelevata la firma dell'utente corrente.
             <br><br>
 
-            <li>sapere se la versione di Prod che si sta usando &egrave; aggiornata:</li>
+            <li><b>sapere se la versione di Prod che si sta usando &egrave; aggiornata</b>:</li>
             <img src="vers_agg.jpg" alt="versione">&emsp;<img src="vers_non_agg.jpg" alt="versione"><br>
             Se la versione in uso non &egrave; aggiornata, Prod pu&ograve; spesso essere comunque usato ad eccezione di aggiornamenti critici che ne peossono pregiudicare il fuznionamento.
             Si consiglia comunque di aggiornarlo sempre seguendo la procedura descritta nella sezione <a href="#mod_agg_sw">moduli aggiuntivi</a>.
             <br><br>
 
-            <li>ottenere informazioni sul giorno corrente:</li>
+            <li><b>ottenere informazioni sul giorno corrente</b>:</li>
             <img src="data.jpg" alt="data"><br>
             <br>
 
-            <li>ottenere informazioni sulle consegne delle 3 pi&ugrave; importanti aziende del gruppo Danieli:</li>
+            <li><b>ottenere informazioni sulle consegne delle 3 pi&ugrave; importanti aziende del gruppo Danieli:</b></li>
             <img src="danieli.jpg" alt="Danieli"><br>
             <br>
 
-            <li>avere la situazione esatta in tempo reale delle lavorazioni in corso:</li>
+            <li><b>avere la situazione esatta in tempo reale delle lavorazioni in corso:</b></li>
             <img src="menu_princ_sit_lav.jpg" alt="lavorazioni in corso"><br>
             I dati vengono aggiornati in tempo reale e riportano l'esatta situazione di quello che sta avvenendo nel reparto produzione.
             Per ogni macchina viene indicato il nome dell'operatore, il lavoro che sta facendo e da quando &egrave; iniziato e gli altri lavori fatti e conclusi nella giornata.
@@ -636,7 +667,7 @@ window.onclick = function(event) {
             <img src="menu_princ_sit_lav_open.jpg" alt="lavori aperti"><br>
             <br>
 
-            <li>avere un resoconto sul carico macchine:</li>
+            <li><b>avere un resoconto sul carico macchine:</b></li>
             <img src="car_macc.jpg" alt="carico macchine"><br>
             <br>
 
@@ -740,12 +771,12 @@ window.onclick = function(event) {
     <p>
         I documenti gestiti in Prod possono essere di qualsiasi tipo previsto nel PC in cui &egrave; installato.
         Pi&ugrave; chiaramente: si possono allegare PDF a clienti e fornitori purch&eacute; sia installato Acrobat Reader o software equivalente;
-        si possono associare disegni in TIFF purch&eacute; ci sia un softare in grado di leggerli. <br>
+        si possono associare disegni in TIFF purch&eacute; ci sia un software in grado di leggerli. <br>
         Disegni ed immagini sono stati testati
         con i formati JPG, TIFF, PNG, BMP ma si possono gestire tutti quelli previsti dal software installato.
         I file AutoCAD (.DWG) possono essere gestiti purech&eacute;, ancora una volta sia installato AutoCAD o un software AutoCAD reader
         ma sono sconsigliati perch&eacute; in genere l'apertura di questo tipo di file &egrave; piuttosto lenta.<br>
-        Stesso discorso per i testi: Prod &egrave; stato usato con .DOC, .DOCX., .ODT purch&eacute; siano installati nel PC in uso i rispettivi softare in grado di leggerli.<br>
+        Stesso discorso per i testi: Prod &egrave; stato usato con .DOC, .DOCX., .ODT purch&eacute; siano installati nel PC in uso i rispettivi software in grado di leggerli.<br>
         Possono essere gestiti anche fogli elettronici come .XLS e .ODS.
         <span class="rosso">Importante: i documenti associati (ad esempio a clienti e fornitori) possono essere
         letti, stampati e salvati ma non modificati; le modifiche apportate andranno perse.</span>
@@ -822,7 +853,7 @@ window.onclick = function(event) {
             in modo che poi possa tornarvi semplicemente richiamando questo segnalibro.
             Per creare il segnalibro per l'elemento corrente, che pu&ograve; essere un OC, un OA, un cliente o qualsiasi altro elemento di Prod,
             basta richiamare <span class="voce">utilità</span> dalle voci di menu in alto e poi fare clic su <span class="voce">imposta segnalibro</span>, usualmente l'ultima voce del menu.
-            Non succede visibilmente nulla ma in questo modo si srà creato un segnalibro sull'elemento corrente che sarà possibile richiamareda qualsiasi posizione
+            Non succede visibilmente nulla ma in questo modo si srà creato un segnalibro sull'elemento corrente che sarà possibile richiamare da qualsiasi posizione
             (ad esempio si pu&ograve; richiamare un OC dall'archivio clienti) facendo clic col tasto destro:
             <img src="segnalibri.jpg" alt="segnalibri"><br>
             Alla destra dell'esagono azzurro viene riportato il tipo di segnalibro (ad es. OA, clienti, ecc.) ed il codice indirizzato: 
