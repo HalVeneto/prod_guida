@@ -457,14 +457,37 @@ window.onclick = function(event) {
     <h2>premessa importante</h2>
     <p>
         Questa guida tratta di Prod, software per la gestione della produzione (come si intuisce dal nome!), 
-    le cui caratteristiche principali sono illustrate nel paragrafo <a href="#info">informazioni generali</a>.
+    le cui caratteristiche principali sono illustrate nel paragrafo <a href="#info">informazioni generali</a>; 
+    <span class="rosso">&egrave; prevista per uso interno della marpa srl, Cologna Veneta, Verona ed ogni utilizzo esterno &egrave; vietato.</span>
     Eviter&ograve; di soffermarmi su particolari evidenti, tipo "fare clic sulla X in alto a destra per chiudere la finestra"
     oppure "nella gestione clienti si trovano le anagrafiche dei clienti".<br>
     Il software &egrave; stato sviluppato per essere quanto pi&ugrave; possibile <i>user friendly</i> ma nonostante ci&ograve; 
     alcune operazioni sono cos&igrave; trasparenti da non essere evidenti oppure non è stato possibile renderle immediatamente intuitive.<br>
-    L'unica cosa "nascosta" ma utilissima è l'<span class="rosso">uso del tasto destro del mouse</span>: 
-    in qualsiasi punto del programma è possibile richiamare il menu generale per accedere ad una sua parte senza dover chiudere o ridurre ad icona quello che si sta facendo:<br>
+    L'unica cosa "nascosta" ma utilissima &egrave; l'<span class="rosso">uso del tasto destro del mouse</span>: 
+    in qualsiasi punto del programma &egrave; possibile richiamare il menu generale per accedere ad una sua parte senza dover chiudere o ridurre ad icona quello che si sta facendo:<br>
     <img src="menu_dx.jpg" alt="menu dx"><br>
+    <table id="tastodx">
+    <tr>
+        <td style="width: 60%;">
+            <video width="640" controls> 
+                <source src="video/tastodx.mp4" type="video/mp4">
+                il browser utilizzato non supporta la riproduzione video
+            </video> 
+        </td>
+        <td style="width: 40%;">
+            spiegazione del video:<br>
+            <ul>
+                <li>ci si trova nell'archivio pagamenti e si vuole richiamare le gestione non conformit&agrave; 
+                    senza ridurre o chiudere la finestra e fare clic su <span class="voce">archivi</span> e <span class="voce">pagamenti</span></li>
+                <li>clic col tasto destro del mouse in un punto vuoto della videata</li>
+                <li>clic sulla voce non conformit&agrave; del menu comparso</li>
+            </ul>
+            <br>
+            <span class="rosso">I segnalibri vengono tutti persi all'uscita da Prod</span>
+        </td>
+    </table>
+    <br>
+    
     Le poche abbreviazioni utilizzate sono queste:
     <ul>
         <li>OC = Ordine Cliente</li>
@@ -527,6 +550,26 @@ window.onclick = function(event) {
         </ul>
     </p>
 
+    <p>Un elemento comune a tutte le videate in cui è prevista una gestione dei dati (caricamento, modifica, cancellazione) è questo "navigatore":<br>
+        <img src="dbnav.jpg" alt="navigatore"><br>
+        <table id="dbnav" style="width: 100%;">
+            <tr><td style="width: 90px"><img src="inizio.jpg" alt="inizio"></td><td style="width: 700px">porta all'inizio dell'archivio (prima registrazione)</td></tr>
+            <tr><td><img src="fine.jpg" alt="fine"></td><td>porta alla fine dell'archivio (ultima registrazione)</td></tr>
+            <tr><td><img src="prec.jpg" alt="prec"></td><td>porta alla registrazione precedente</td></tr>
+            <tr><td><img src="succ.jpg" alt="succ"></td><td>porta alla registrazione successiva</td></tr>
+            <tr><td><img src="carica.jpg" alt="carica"> oppure <img src="car2.jpg" alt="car2"></td><td>carica una nuova registrazione</td></tr>
+            <tr><td><img src="modif.jpg" alt="modif"> oppure <img src="modif2.jpg" alt="modif2"></td><td>consente di modificare la registrazione correntemente visualizzata</td></tr>
+            <tr><td><img src="salva.jpg" alt="salva"></td><td>conferma (salva, registra) la registrazione corrente; si abilita solo durante il caricamento o la modifica</td></tr>
+            <tr><td><img src="agg.jpg" alt="agg"></td><td>aggiorna l'archivio su cui si sta lavornado, permwettendo così di vedere eventuali caricamenti, modifiche o cancellazioni
+                fatti da un altro utente. Tutte le operazioni cercano di considerare subito gli interventi di altri utenti ma questa operazione assicura un aggiornamento istantaneo.
+            </td></tr>
+            <tr><td><img src="ann.jpg" alt="ann"></td><td>annulla la registrazione corrente; si abilita solo durante il caricamento o la modifica. 
+                In fase di modifica, non salva le modifiche e fa tornare la registrazione com'era in origine. Questa operazione non è possibile dopo la conferma della registrazione.
+                In caso di caricamento, non salva la registrazione e viene completamente</td></tr>
+            <tr><td><img src="canc.jpg" alt="canc"></td><td>cancella la registrazione correntemente visualizzata (chiede prima conferma)</td></tr>
+        </table>
+    </p>
+
     <p>Alcune forse noiose ma necessarie informazioni "tecniche": il software "gira" su sistema operativo Windows,
     &egrave; stato testato nelle versioni 7 e 10. <span class="rosso">Importante: &egrave; necessario un monitor che abbia una risoluzione
     di 1920x1080 pixels</span>. <br>
@@ -549,7 +592,13 @@ window.onclick = function(event) {
     <h2>la videata principale</h2>
     <p>
         Appena lanciato Prod, si presenta questa videata:<br><br>
-        <img src="videata_princ.jpg" alt="videata principale"><br><br>
+        <img src="videata_princ.jpg" alt="videata principale"><br>
+        Un esempio animato delle voci che disponibili:<br>
+        <video width="640" controls> 
+            <source src="video/main.mp4" type="video/mp4">
+            il browser utilizzato non supporta la riproduzione video
+        </video> 
+
         Cosa si pu&ograve; fare da qui?<br>
         <ul>
             <li><b>lanciare una voce del menu:</b></li>
@@ -570,7 +619,7 @@ window.onclick = function(event) {
             Gli ordini in scadenza oggi sono riportati con un colore diverso dagli altri.
             <br><br>
 
-            <li><b>avere la situzione delle commesse scadute:</b></li>
+            <li><b>avere la situazione delle commesse scadute:</b></li>
             <img src="sit_comm.jpg" alt="commesse scadute"><br><br>
             Vengono elencate tutte le commesse scadute (con consegna concordata fino ad oggi compreso); 
             per ognuna vengono elencate le lavorazioni previste con relativa situazione:<br>
@@ -603,7 +652,7 @@ window.onclick = function(event) {
             <li><b>sapere chi &egrave; assente oggi e chi ha comunicato assenza in futuro</b></li>
             <br>
 
-            <li></b>visualizzare avvisi</b> per tutti gli utenti di Prod, per il monitor esterno e solo per l'operatore corrente</li>
+            <li><b>visualizzare avvisi</b> per tutti gli utenti di Prod, per il monitor esterno e solo per l'operatore corrente</li>
             Nella sezione "gestione info" &egrave; possibile caricare un messaggio che sar&agrave;, a seconda della destinazione scelta:<br>
             <ul>
                 <li>visualizzato da tutti gli utenti che usano Prod</li>
@@ -614,7 +663,7 @@ window.onclick = function(event) {
 
             <li><b>consultare l'elenco delle offerte a clienti aperte:</b></li>
             <img src="off_aperte.jpg" alt="offerte aperte"><br><br>
-            Vengono elencate tutte le offerte emesse a clienti non concluse. Vengono evidenziate quelle che devono essere richiamate e quelle che sono gi&agrave; statae richiamate almeno una volta;
+            Vengono elencate tutte le offerte emesse a clienti non concluse. Vengono evidenziate quelle che devono essere richiamate e quelle che sono gi&agrave; state richiamate almeno una volta;
             facendo clic su una di queste due legende si filtra l'elenco in modo che riporti solo quelle del tipo scelto. Per tornare all'elenco generale fare clic su "elencare tutto".<br>
             <br>
 
@@ -684,6 +733,9 @@ window.onclick = function(event) {
     ad esempio da clienti e fornitori pu&ograve; essere inviata direttamente una mail a vari referenti, 
     ad ognuno possono essere associati numerosi documenti scannerizzati (v. <a href="#fmtdocs")>formato documenti</a>),
     si possono effettuare ricerche qualsi per ogni campo, possono essere stese ampie note, ecc.
+    <p>
+        ...in fase di sviluppo...
+    </p>
     </p>
     <div id="az4"></div><script>azioni("az4","arch");</script>
 
@@ -691,9 +743,12 @@ window.onclick = function(event) {
     <div id="off">
     <h2>offerte a clienti</h2>
     <p>
-        E' utile archiviare le offerte fatte ai clienti per avere un documento di riferimento quando l'offerta (si spera) diventer&agrave; ordine,
+        &Egrave; utile archiviare le offerte fatte ai clienti per avere un documento di riferimento quando l'offerta (si spera) diventer&agrave; ordine,
         per avere un resoconto sulla percentuale di offerte che si trasformano in ordini e per avere un promemoria sulle offerte da cui sollecitare una risposta.<br>
-        E' possibile "versionare" un'offerta, partendo cio&egrave; dall'offerta iniziale si possono portare delle variazioni tenendo per&ograve; traccia dei cambiamenti.
+        &Egrave; possibile "versionare" un'offerta, partendo cio&egrave; dall'offerta iniziale si possono portare delle variazioni tenendo per&ograve; traccia dei cambiamenti.
+        <p>
+            ...in fase di sviluppo...
+        </p>
     </p>
     <div id="az5"></div><script>azioni("az5","off");</script>
     </div>
@@ -756,7 +811,7 @@ window.onclick = function(event) {
             ma per comodit&agrave; pu&ograve; essere anche l'anno appena trascorso.<br>
             Non &egrave; mportante n&eacute; necessario che l'anno di Prod sia impostato sull'esatto anno corrente, 
             l'utilit&agrave; sta solo nel rendere pi&ugrave; semplice e veloce la ricerca
-            come indicato in <a href="#rich_oc_oa"><span class="voce">E' possibile richiamare un ordine clienti o fornitori senza indicare l'anno davanti al progressivo</a></span>
+            come indicato in <a href="#rich_oc_oa"><span class="voce">&Egrave; possibile richiamare un ordine clienti o fornitori senza indicare l'anno davanti al progressivo</a></span>
             </div>
         </p>
         <div id="az12"></div><script>azioni("az12","util");</script>
@@ -789,6 +844,38 @@ window.onclick = function(event) {
     <h2>come fare per...</h2>
     <p>
         <ul>
+            <li><h3>...creare un segnalibro</h3>
+            <table id="videosegnalibro">
+                <tr>
+                    <td style="width: 60%;">
+                        <video width="640" controls> 
+                            <source src="video/segnalibro.mp4" type="video/mp4">
+                            il browser utilizzato non supporta la riproduzione video
+                        </video> 
+                    </td>
+                    <td style="width: 40%;">
+                        spiegazione del video:<br>
+                        <ul>
+                            <li>si desidera creare un segnalibero per il cliente correntemente visualizzato in modo da potervi ritornare agevolmente</li>
+                            <li>clic su <span class="voce">utilit&agrave;</span></li>
+                            <li>clic su <span class="voce">imposta segnalibro</span></li>
+                            <li>si consultano altri clienti</li>
+                            <li>per tornare al cliente "segnato": clic col tasto destro</li>
+                            <li>il tipo (clienti) ed il codice vengono visualizzati sull'estremit&agrave; destra per facilitarne il riconoscimento</li>
+                            <li>fare clic sul segnalibro ed il cliente "segnato" viene immediatamente richiamato</li>
+                            <li>se il segnalibro non serve pi&ugrave;, cancellarlo richimando i segnalibri col tasto destro 
+                                e facendo clic su <span class="voce">azzera segnalibro</span> sotto al segnalibro da cancellare</li>
+                        </ul>
+                        <br>
+                        <span class="rosso">I segnalibri vengono tutti persi all'uscita da Prod</span>
+                    </td>
+                </tr>
+            </table>
+            
+            </li>
+        </ul>
+
+        <ul>
             <li><h3>...uscire da Prod senza dover chiudere ogni singola finestra</h3>
             Talvolta &egrave; necessario chiudere parecchie finestre prima di arrivare alla videata principale per uscire da Prod
             ma c'&egrave; un metodo veloce per farlo immediatamente: fare clic col tasto destro e poi fare cli su <span class="voce">esci da Prod</span>:<br>
@@ -796,6 +883,7 @@ window.onclick = function(event) {
             E' sempre bene uscire completamente da Prod prima di spegnere il PC o prima dell'effettuazione di un backup automatico.
             </li>
         </ul>
+
         <ul>
             <li><h3>...effettuare una ricerca per un qualsiasi campo (o quasi)</h3>
             Nei menu in alto c'&egrave; sempre la possibilit&agrave; di effettuare ricerche per i campi pi&ugrave; usati (ad es. codice e descrizione)
@@ -809,6 +897,40 @@ window.onclick = function(event) {
             <img src="cercaF2_2.jpg" alt="cerca F2 - elenco"><br>
             </li>
         </ul>
+
+        <ul>
+            <li><h3>...inviare una mail ad un referente di un cliente o fornitore</h3>
+            <table>
+                <tr>
+                    <td>Richiamare il cliente o fornitore, fare clic sul nome del referente e poi sull'icona </td>
+                    <td><img src="mail.jpg" alt="mail"></td>
+                    <td>:</td>
+                </tr>
+            </table>
+            <video width="640" controls> 
+                <source src="video/mail_a_cli.mp4" type="video/mp4">
+                il browser utilizzato non supporta la riproduzione video
+            </video> 
+            </li>
+        </ul>
+
+        <ul>
+            <li><h3>...inviare una mail di richiesta di certificato ad un fornitore</h3>
+            <table>
+                <tr>
+                    <td>Richiamare l'<a href="#oa">ordine di acquisto</a>, fare clic sulla riga che interessa e poi sull'icona </td>
+                    <td><img src="mail.jpg" alt="mail"></td>
+                    <td>:</td>
+                </tr>
+            </table>
+            <video width="640" controls> 
+                <source src="video/ask_certif.mp4" type="video/mp4">
+                il browser utilizzato non supporta la riproduzione video
+            </video> 
+            La mail verr&agrave; presentata gi&agrave; compilata con il nome del referente per i certificati (se impostato) ed i riferimenti al loro ddt di invio.
+            </li>
+        </ul>
+
     </p>
     <div id="az14"></div><script>azioni("az14","come");</script>
     
@@ -821,10 +943,19 @@ window.onclick = function(event) {
     <p>
         <ul>
             <li><h3 id="rich_oc_oa">...&egrave; possibile richiamare un ordine clienti o fornitori senza indicare l'anno davanti al progressivo.</h3>
-            Ad esempio, se l'anno corrente&egrave; 2020, per cercare l'ordine 2020123 &egrave; possibile indicare solo 123 e per cercare l'ordine 2020003 &egrave; possibile indicare solo 3.
+            Ad esempio, se l'anno corrente&egrave; <span class="voce">2020</span>, per cercare l'ordine <span class="voce">2020123</span> 
+            &egrave; possibile indicare solo <span class="voce">123</span> e per cercare l'ordine <span class="voce">2020003</span> &egrave; possibile indicare solo <span class="voce">3</span>.
             Questo solo se l'ordine ricercato fa parte dell'anno correntemente in corso (v. <a href="#ut_anno">cambio anno</a>).
             Se l'ordine ricercato &egrave; dell'anno precedente a quello in corso, se ne pu&ograve; indicare comunque solo il progressivo preceduta del simbolo "-"" (<i>meno</i>).
-            Ad esempio, se l'anno corrente &egrave; 2020, per cercare 2019123 indicare -123 e per cercare l'ordine 2019003 indicare -3.
+            Ad esempio, se l'anno corrente &egrave; <span class="voce">2020</span>, per cercare <span class="voce">2020123</span> indicare <span class="voce">-123</span> 
+            e per cercare l'ordine <span class="voce">2019003</span> indicare <span class="voce">-3</span>.
+            </li>
+
+            <li><h3 id="rich_cod">...&egrave; possibile eseguire una ricerca indicando solo lettere e numeri "base".</h3>
+            Pi&ugrave; chiaramente, si pu&ograve; fare a meno di preoccuparsi di indicare simboli di punteggiatura (punti, virgole, ecc.) e/o spazi.
+            Ad esempio, se si cerca il disegno <span class="voce">0.123.456.Z</span> si pu&ograve; scrivere solo <span class="voce">0123456Z</span>; 
+            se si cerca il nominativo <span class="voce">Airoldi & Belgeri</span> si pu&ograve; scrivere solo <span class="voce">airoldibelg</span>.
+            Non ci si deve inoltre preoccupare di scrivere in maiuscolo o minuscolo e quasi sempre, come nell'esempio precedente, &egrave; possibile indicare solo una parte del valore da cercare.
             </li>
 
             <li><h3>...&egrave; possibile risalire immediatamente al numero di settimana corrente.</h3>
