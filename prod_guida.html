@@ -32,7 +32,7 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: aqua; color: black;}
+.dropdown-content a:hover { background-color: yellow; color: black;} /* aqua */
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
@@ -41,11 +41,11 @@ body {
 
 .sidenav {
     width: 230px;
-    /*position: fixed;*/
+    /*position: fixed;
     z-index: 1;
     top: 0px;
     text-indent: 5px;
-    /*margin-top: 15px;*/
+    /*margin-top: 15px;
     left: 5px;
     margin-right: 5px;
     background:grey;
@@ -61,9 +61,9 @@ body {
     top: 0px;
     margin-left: 5px; 
     margin-right: 5px;
-    left: 240px; /* Same width as the sidebar + left position in px */
-    /*margin-top: 10px;*/
-    font-size: 16px; /* Increased text to enable scrolling */
+    left: 240px; /* Same width as the sidebar + left position in px 
+    /*margin-top: 10px;
+    font-size: 16px; /* Increased text to enable scrolling 
     padding: 0px 0px;
     background-color: lightgray;
     width: 80%;
@@ -73,13 +73,13 @@ body {
     padding: 0px;
     text-decoration: none;
     font-size: 16px;
-    color: black; /* #2196F3;*/
+    color: black; /* #2196F3;
     display: block;
     text-indent: 5px;
 }
 
 .sidenav a:hover {
-    color: yellow; /* #064579;*/
+    color: yellow; /* #064579;
 }
 
 .sidenav li {
@@ -95,13 +95,13 @@ ul {
   padding-left: 5px;
 }
 
-/* Second Level */
+/* Second Level 
 ul ul {
   margin-left: 14px;
   padding-left: 10px;
 }
 
-/* Third Level */
+/* Third Level 
 ul ul ul {
   margin-left: 16px;
   padding-left: 15px;
@@ -261,6 +261,7 @@ window.onclick = function(event) {
         txt += "<ul>";
         txt += "<li><a href=\"#mag_ges\">movimenti magazzino</a></li>";
         txt += "<li><a href=\"#mag_res\">resoconti magazzino</a></li>";
+        txt += "<li><a href=\"#mag_int\">magazzini interni</a></li>";
         txt += "</ul>";
         txt += "<hr>";
 
@@ -477,13 +478,14 @@ window.onclick = function(event) {
         <td style="width: 40%;">
             spiegazione del video:<br>
             <ul>
-                <li>ci si trova nell'archivio pagamenti e si vuole richiamare le gestione non conformit&agrave; 
-                    senza ridurre o chiudere la finestra e fare clic su <span class="voce">archivi</span> e <span class="voce">pagamenti</span></li>
-                <li>clic col tasto destro del mouse in un punto vuoto della videata</li>
-                <li>clic sulla voce non conformit&agrave; del menu comparso</li>
+                <li>ci si trova nell'archivio clienti e si vuole richiamare le gestione articoli di vendita (disegni) 
+                    senza ridurre o chiudere la finestra e fare clic su <span class="voce">archivi</span> e <span class="voce">articoli di vendita (disegni)</span></li>
+                <li>clic col tasto destro del mouse in un punto vuoto della videata: quando nel video compare il menu, significa che &egrave; stato fatto clic con il tasto destro del mouse in un punto qualaiasi del video (salvo eccezioni)</li>
+                <li>clic sulla voce <span class="voce">articoli di vendita (disegni)</span> del menu comparso</li>
+                <li>si vuole ora passare alla gestione magazzino: clic col tasto destro e poi su <span class="voce">magazzino<span></li>
+                <li>per passare alla gestione tempi di lavorazione, stessa procedura: clic col tasto destro e poi su <span class="voce">tempi di lavorazione<span></li>
             </ul>
             <br>
-            <span class="rosso">I segnalibri vengono tutti persi all'uscita da Prod</span>
         </td>
     </table>
     <br>
@@ -597,7 +599,8 @@ window.onclick = function(event) {
         <video width="640" controls> 
             <source src="video/main.mp4" type="video/mp4">
             il browser utilizzato non supporta la riproduzione video
-        </video> 
+        </video>
+        <br><br>
 
         Cosa si pu&ograve; fare da qui?<br>
         <ul>
@@ -608,6 +611,7 @@ window.onclick = function(event) {
             <li><b>fare clic col tasto destro per accedere ad una voce del menu:</b></li>
             <img src="menu_dx.jpg" alt="menu \"testo destro\""">
             <br><br>
+            <div id="az22"></div><script>azioni("az22","menu");</script><br>
 
             <li><b>avere subito l'elenco degli OA scaduti (compreso il giorno corrente):</b></li>
             <img src="menu_princ_oa.jpg" alt="elenco OA"><br><br>
@@ -618,6 +622,7 @@ window.onclick = function(event) {
             ad ogni clic si incrementa di un giorno. Per tornare alla situzione odierna fare clic su "oggi".
             Gli ordini in scadenza oggi sono riportati con un colore diverso dagli altri.
             <br><br>
+            <div id="az23"></div><script>azioni("az23","menu");</script><br>
 
             <li><b>avere la situazione delle commesse scadute:</b></li>
             <img src="sit_comm.jpg" alt="commesse scadute"><br><br>
@@ -645,6 +650,7 @@ window.onclick = function(event) {
                 <li>elencare gli OA riferiti alla commessa</li>
             </ul>
             <br>
+            <div id="az24"></div><script>azioni("az24","menu");</script><br>
             
             <li><b>visualizzare l'elenco della merce in arrivo, in partenza e da ritirare.</b></li>
             <br>
@@ -660,6 +666,7 @@ window.onclick = function(event) {
                 <li>visulizzato solo per l'utente di Prod selezionato</li>
             </ul>
             <br>
+            <div id="az25"></div><script>azioni("az25","menu");</script><br>
 
             <li><b>consultare l'elenco delle offerte a clienti aperte:</b></li>
             <img src="off_aperte.jpg" alt="offerte aperte"><br><br>
@@ -673,6 +680,7 @@ window.onclick = function(event) {
             Questo elenco d&agrave; la risposta a tutte queste domande, evidenziato i ritiri scaduti (la merce dovrebbe essere gi&agrave; pronta per il ritiro),
             quelli che saranno pronti a breve oppure pi&ugrave; avanti. Facendo doppio clic su una riga si richiama l'OC che l'ha generata.
             <br><br>
+            <div id="az26"></div><script>azioni("az26","menu");</script><br>
 
             <li><b>avere l'elenco di tutte le lavorazioni scadute fino ad oggi compreso</b></li>
             <br>
@@ -680,6 +688,7 @@ window.onclick = function(event) {
             <li><b>sapere qual &egrave; l'anno corrente</b> impostato (vedere <a href="#ut_anno">cambio anno</a>):</li>
             <img src="anno.jpg" alt="anno">
             <br><br>
+            <div id="az27"></div><script>azioni("az27","menu");</script><br>
 
             <li><b>sapere qual &egrave; l'utente che ha effettuato il login</b>:</li>
             <img src="utente.jpg" alt="utente"><br>
@@ -692,6 +701,7 @@ window.onclick = function(event) {
             Se la versione in uso non &egrave; aggiornata, Prod pu&ograve; spesso essere comunque usato ad eccezione di aggiornamenti critici che ne peossono pregiudicare il fuznionamento.
             Si consiglia comunque di aggiornarlo sempre seguendo la procedura descritta nella sezione <a href="#mod_agg_sw">moduli aggiuntivi</a>.
             <br><br>
+            <div id="az28"></div><script>azioni("az28","menu");</script><br>
 
             <li><b>ottenere informazioni sul giorno corrente</b>:</li>
             <img src="data.jpg" alt="data"><br>
@@ -700,6 +710,7 @@ window.onclick = function(event) {
             <li><b>ottenere informazioni sulle consegne delle 3 pi&ugrave; importanti aziende del gruppo Danieli:</b></li>
             <img src="danieli.jpg" alt="Danieli"><br>
             <br>
+            <div id="az29"></div><script>azioni("az29","menu");</script><br>
 
             <li><b>avere la situazione esatta in tempo reale delle lavorazioni in corso:</b></li>
             <img src="menu_princ_sit_lav.jpg" alt="lavorazioni in corso"><br>
@@ -715,6 +726,7 @@ window.onclick = function(event) {
             fare clic sul pulsante "lavori aperti" in alto:<br>
             <img src="menu_princ_sit_lav_open.jpg" alt="lavori aperti"><br>
             <br>
+            <div id="az30"></div><script>azioni("az30","menu");</script><br>
 
             <li><b>avere un resoconto sul carico macchine:</b></li>
             <img src="car_macc.jpg" alt="carico macchine"><br>
@@ -775,6 +787,42 @@ window.onclick = function(event) {
         <p>
             ...in fase di sviluppo...
         </p>
+
+        <h2 id="mag_int">magazzini interni</h2>
+        <p>
+            Per magazzino interno si intende un insieme di materiale dedicato ad uno scopo specifico, in particolare per la produzione per un cliente. 
+            <b>Un magazzino, o meglio: ogni elemento di un magazzino viene associato ad una commessa.</b> 
+            Questo materiale pu&ograve; benissimo essere stoccato fisicamente assieme a tutto l'altro materiale per altri clienti; 
+            la funzione di Prod &egrave; di estrarre questi pezzi per tenerne sotto controllo carico, scarico, giacenza e merce in arrivo.<br>
+            <ul>
+                <li><h3>Definizione (creazione) di un magazzino interno</h3></li>
+                Un magazzino interno viene creato (caricato) come una normale riga di OC, 
+                con la sola differenza che viene spuntata la casella <span class="voce">determina magazzino</span> sotto al numero commessa:<br><br>
+                <img src="setmag.jpg" alt="magazzino"><br>
+                Questa commessa non comparir&agrave; nei resoconti degli OC.<br>
+                
+                <li><h3>Carico di un magazzino interno</h3></li>
+                Per caricare un magazzino interno &egrave; sufficiente caricare un OA specificando in una riga la commessa che identifica il magazzino interno.<br>
+                Mantenendo l'esempio di prima (<span class="voce">Definizione (creazione) di un magazzino interno</span>):<br>
+                <img src="car_mag_int.jpg" alt="carico magazzino interno"><br>
+                Importante notare che il solo caricamento dell'OA <b>impegna</b> il magazzino interno ma non lo carica; 
+                il caricamento vero e proprio avviene quando si indica la quantit&agrave; consegnata, quando cio&egrave; la merce &egrave; arrivata. <br>
+                <i>Riassumendo: creo un OA indicando 2 come quantit&agrave; ordinata nel campo <span class="voce">q.t&agrave; ord.</span> e la commessa-magazzino: 
+                nel resoconto del magazzino interno mi indicher&agrave; che ci sono 2 pezzi ordinati (ma non caricati); 
+                quando arriva la merce, indico 2 (oppure 1, per consegne parziali) nel campo <span class="voce">q.t&agrave; cons.</span> della riga OA e questa quantit&agrave; 2 passa da ordinato a caricato. 
+                Naturalmente posso avere situazioni miste in cui c'&egrave; una quantit&agrave; caricata ed una quantit&agrave; solo ordinata ma non ancora arrivata.</i><br>
+
+                <li><h3>Scarico di un magazzino interno</h3></li>
+
+                <img src="scar_mag_int.jpg" alt="scarico magazzino interno"><br>
+
+            </ul>
+
+
+
+
+        </p>
+
         <div id="az8"></div><script>azioni("az8","mag");</script>
     </div>
 
@@ -1068,6 +1116,6 @@ window.onclick = function(event) {
  
 </body>
 
-<!-- --- last az: 21 -->
+<!-- --- last az: 30 -->
 
 </html> 
