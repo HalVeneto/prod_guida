@@ -463,7 +463,8 @@ window.onclick = function(event) {
     Eviter&ograve; di soffermarmi su particolari evidenti, tipo "fare clic sulla X in alto a destra per chiudere la finestra"
     oppure "nella gestione clienti si trovano le anagrafiche dei clienti".<br>
     Il software &egrave; stato sviluppato per essere quanto pi&ugrave; possibile <i>user friendly</i> ma nonostante ci&ograve; 
-    alcune operazioni sono cos&igrave; trasparenti da non essere evidenti oppure non è stato possibile renderle immediatamente intuitive.<br>
+    alcune operazioni sono cos&igrave; trasparenti da non essere evidenti oppure non è stato possibile renderle immediatamente intuitive.<br><br>
+
     L'unica cosa "nascosta" ma utilissima &egrave; l'<span class="rosso">uso del tasto destro del mouse</span>: 
     in qualsiasi punto del programma &egrave; possibile richiamare il menu generale per accedere ad una sua parte senza dover chiudere o ridurre ad icona quello che si sta facendo:<br>
     <img src="menu_dx.jpg" alt="menu dx"><br>
@@ -489,6 +490,14 @@ window.onclick = function(event) {
         </td>
     </table>
     <br>
+    Alcune altre cose molto utili ma non immediatamente intuibili:<br>
+    <ul>
+        <li>F1 premuto su un campo d&agrave;, quando previsto, indicazioni sull'operazione che si sta eseguendo</li>
+        <li>F2 premuto su un campo d&agrave;, quando previsto, un elenco dei dati che possono essere richiamati</li>
+        <li>lasciando l'indicatore del mouse su un oggetto di Prod (un campo, un'icona, ecc.) viene spesso visualizzata la descrizione della sua funzione:
+        <img src="help.jpg" alt="help"><br><br>
+        </li>
+    </ul>
     
     Le poche abbreviazioni utilizzate sono queste:
     <ul>
@@ -498,6 +507,15 @@ window.onclick = function(event) {
         <li>PC = computer (Personal Computer)</li>
     </ul>
     </p>
+    Troveremo la lista di azioni qui sotto riportata quasi ovunque: il suo scopo &egrave; di semplificare al massimo la navigazione e la ricerca in questa guida.
+    <ul>
+        <li><span class="voce">menu</span>: apre ed elenca tutte le voci del menu di Prod e consente di saltare subito ad una di esse</li>
+        <li><span class="voce">inizio argomento</span>: salta all'inizio del paragrafo (argomento) che si sta leggendo</li>
+        <li><span class="voce">approfondimenti</span>: tratta argomenti al di fuori delle voci di menu di Prod ma molto utili al suo utilizzo ottimale; 
+            le sezioni principali sono <span class="voce">come fare per...</span> e <span class="voce">forse non sapete che...</span>.
+        <li><span class="voce">argomenti</span>: presenta un elenco di colegamenti in base all'argomento ricercato, nel caso non si riesce a trovarlo diversamente</li>
+        <li><span class="voce">inizio</span>: salta all'inizio assoluto di questa guida</li>
+    </ul>
     <div id="az1"></div><script>azioni("az1","prem");</script>
     <!-- <button onclick="document.location = '#prem'">inizio argomento</button>
     <button onclick="document.location = '#start'">menu</button>
@@ -526,7 +544,7 @@ window.onclick = function(event) {
             le non conformit&agrave;, i tempi di lavorazione, i conti lavoro esterni e la loro situazione, i trasporti e molto altro.
             Gli ordini prevedono l'archiviazione di tutti i dati che concorrono alla sua definizione: riferimenti interni, riferimenti del cliente,
             note libere, allegati di qualsiasi tipo (vedere <a href="#fmtdocs">formato documenti</a></li>") e via dicendo.
-            Dagli ordini so possono ricavare numerosissimi resoconti e statistiche, cito solo la resa delle commesse, i confronti tra tempi preventivati e consuntivati,
+            Dagli ordini si possono ricavare numerosissimi resoconti e statistiche, cito solo la resa delle commesse, i confronti tra tempi preventivati e consuntivati,
             l'elenco e quantificazione dei costi sostenuti, la schedulazione teorica e programmata dei lavori, i tempi di consegna e via dicendo.
         </li>
         <li><b><a href="#oa">ordini di acquisto</a></b>: spesso collegati all'ordine cliente, danno soprattutto il resoconto di quanto deve ancora arrivare e di quanto &egrave; stato speso per l'ordine cliente.
@@ -573,17 +591,16 @@ window.onclick = function(event) {
     </p>
 
     <p>Alcune forse noiose ma necessarie informazioni "tecniche": il software "gira" su sistema operativo Windows,
-    &egrave; stato testato nelle versioni 7 e 10. <span class="rosso">Importante: &egrave; necessario un monitor che abbia una risoluzione
-    di 1920x1080 pixels</span>. <br>
-    Il database &egrave; un Postgresql versione 8.3 ma i dati possono essere portati fino alla versione attuale.
+    &egrave; stato testato nelle versioni 7 e 10. <span class="rosso">Importante: &egrave; necessario un monitor che abbia una risoluzione di 1920x1080 pixels</span>.<br>
+    Il database &egrave; un Postgresql, tra i pi&ugrave; sicuri e veloci. 
     L'installazione del client richiede pochi mega su disco; anche quella su server non &egrave; molto ingombrante. 
     Le dimensioni dal database crescono ovviamente a seconda dei dati caricati ma tenete presente che caricando parecchie immagini raggiungono facilmente qualche giga (attualmente circa 8Gb).<br>
-    Il software prevede l'utilizzo in multiutenza in rete locale; il limite &egrave; quello del Postgresql e della "forza" della rete locale; attualmente &egrave; operativo con una quandicina di utenti contemporanei.
-    Può essere utilizzato in rete geografica mediante l'installazione di una VPN; le performance sono date dalla banda di rete, che deve essere buona, e dall'hardware del PC client.
+    Il software prevede l'utilizzo in multiutenza in rete locale; attualmente &egrave; operativo con una quandicina di utenti contemporanei.
+    Pu&ograve; essere utilizzato in rete geografica mediante l'installazione di una VPN; le performance sono date dalla banda di rete, che deve essere buona, e dall'hardware del PC client.
     Se la VPN, la banda o l'hardware locale costituiscono un problema, pu&ograve; tranquillamente essere utilizzato in remoto mediante un software come AnyDesk.<br>
-    Per la cronaca, il software &egrave; sviluppato in parte in Delphi ed in parte in Lazarus, entrambi evoluzioni del Pascal. Utilizzatori di questi linguaggi sono la NASA, l'European Space Agency e la Disney
-    ed il software pi&ugrave; conosciuto sviluppato in Delphi &egrave; Skype. Il linguaggio non è molto diffuso ma pur avendo una lunga tradizione &grave; tuttora vivissimo e vegetissimo (!)
-    e continuamente aggiornato dalla californiana Embarcadero e da una fitta ed attiva comunità. La sua peculiarità consiste nel poter sviluppare praticamente qualsiasi software
+    Per la cronaca, il software &egrave; sviluppato in parte in Delphi ed in parte in Lazarus, entrambi evoluzioni del Pascal. Utilizzatori di questi linguaggi sono, tra gli altri, la NASA e l'European Space Agency 
+    ed il software pi&ugrave; conosciuto sviluppato in Delphi &egrave; Skype. Il linguaggio non &egrave; tra i pi&ugrave; diffusi ma pur avendo una lunga tradizione &grave; tuttora vivissimo e vegetissimo (!)
+    e continuamente aggiornato dalla californiana Embarcadero e da una fitta ed attiva comunità. La sua peculiarit&agrave; consiste nel poter sviluppare praticamente qualsiasi software
     ed essere velocissimo nell'esecuzione in quanto non necessita di interpreti; esso inoltre non non necessita di librerie esterne con conseguenti problemi di aggiornamento.</p>
     </p>
 
@@ -595,7 +612,7 @@ window.onclick = function(event) {
     <p>
         Appena lanciato Prod, si presenta questa videata:<br><br>
         <img src="videata_princ.jpg" alt="videata principale"><br>
-        Un esempio animato delle voci che disponibili:<br>
+        Un esempio animato delle voci disponibili:<br>
         <video width="640" controls> 
             <source src="video/main.mp4" type="video/mp4">
             il browser utilizzato non supporta la riproduzione video
@@ -663,7 +680,7 @@ window.onclick = function(event) {
             <ul>
                 <li>visualizzato da tutti gli utenti che usano Prod</li>
                 <li>visualizzato solo nella sezione avvisi del monitor informativo esterno</li>
-                <li>visulizzato solo per l'utente di Prod selezionato</li>
+                <li>visualizzato solo per l'utente di Prod selezionato</li>
             </ul>
             <br>
             <div id="az25"></div><script>azioni("az25","menu");</script><br>
@@ -802,7 +819,7 @@ window.onclick = function(event) {
                 Questa commessa non comparir&agrave; nei resoconti degli OC.<br>
                 
                 <li><h3>Carico di un magazzino interno</h3></li>
-                Per caricare un magazzino interno &egrave; sufficiente caricare un OA specificando in una riga la commessa che identifica il magazzino interno.<br>
+                Per caricare (aggiungere quanti&agrave;) un magazzino interno &egrave; sufficiente caricare un OA specificando in una riga la commessa che identifica il magazzino interno.<br>
                 Mantenendo l'esempio di prima (<span class="voce">Definizione (creazione) di un magazzino interno</span>):<br>
                 <img src="car_mag_int.jpg" alt="carico magazzino interno"><br>
                 Importante notare che il solo caricamento dell'OA <b>impegna</b> il magazzino interno ma non lo carica; 
@@ -813,14 +830,34 @@ window.onclick = function(event) {
                 Naturalmente posso avere situazioni miste in cui c'&egrave; una quantit&agrave; caricata ed una quantit&agrave; solo ordinata ma non ancora arrivata.</i><br>
 
                 <li><h3>Scarico di un magazzino interno</h3></li>
-
+                Per scaricare un magazzino interno (togliere quantit&agrave;) &egrave; sufficiente indicare nel campo <span class="voce">commessa-magazzino</span> di una riga OC esistente la commessa-magazzino che si vuole scaricare.<br>
+                Questa commessa pu&ograve; essere caricata "manualmente" digitandone il numero oppure pu&ograve; essere selezionata da un elenco: nell'esempio qui sotto, facendo clic sul quadrato bianco e giallo cerchiato in verde 
+                si apre una finestra con l'elenco di tutte le commesse-magazzino aperte del cliente dell'OC su cui si sta lavorando e facendo doppio clic su una riga di questo elenco se ne carica la commessa.
                 <img src="scar_mag_int.jpg" alt="scarico magazzino interno"><br>
+                Importanti precisazioni: 
+                <ul>
+                    <li>questo modo di operare prevede l'esistenza di un OC con una o pi&ugrave; commesse che hanno la sola funzione di commesse-magazzino (<span class="voce">determina magazzino</span>) e non vengono quindi trattate come normali commesse</li>
+                    <li>&egrave; opportuno indicare la commessa-magazzino nella riga OC appena ha inizio la lavorazione (messa in produzione) in modo che venga subito tolta dalla disponibilit&agrave;</li>
+                    <li>l'indicazione della commessa-magazzino nella riga OC scarica tutta la quantit&agrave; della riga OC; trattandosi di un OC che va ad attingere in un magazzini, si presume che ne venga lavorata l'intera quantit&agrave;</li>
+                </ul>
+              
+                <li><h3>Situazione di un magazzino interno</h3></li>
+                Per consultare la situazione di un magazzino interno si pu&ograve; utilizzare la stessa icona quadrata bianca e gialla cerchiata di verde dell'immagine precedente.<br>
+                La situazione d&agrave; l'elenco delle commesse-magazzino del cliente dell'OC corrente e per ognuna:<br>
+                    <ul>
+                        <li><span class="voce">caricato</span>: tutta la quantit&agrave; arrivata finora (anche se poi scaricata)</li>
+                        <li><span class="voce">in arrivo</span>: quanti&agrave; ordinata ma non ancora arrivata</li>
+                        <li><span class="voce">scaricato</span>: tutta la quantit&agrave; scaricata (consegnata al cliente) finora</li>
+                        <li><span class="voce">giacenza</span>: quantit&agrave; fisicamente presente in magazzino e non ancora lavorata</li>
+                    </ul>
+                </ul>
+                <img src="sit_mag_int.jpg" alt="situazione magazzino interno"><br>
 
+                <li><h3>Elenco delle righe di OC relative ad una commessa-magazzino</h3></li>
+                Per ricercare le righe di OC in cui viene gestita una commessa-magazzino, fare clic nell'omonimo campo e battere F2: 
+                verr&agrave; richiesto il codice della commessa-magazzino da ricercare (indicarlo integralmente) e verr&agrave; fornito, se esistente, un elenco di tutte le righe di OC relative alla commessa-magazzino: 
+                per richiamare l'OC di una di queste commesse elencate fare doppio clic nella riga di elenco corrispondente.
             </ul>
-
-
-
-
         </p>
 
         <div id="az8"></div><script>azioni("az8","mag");</script>
@@ -1022,7 +1059,7 @@ window.onclick = function(event) {
             <li><h3>...&egrave; possibile individuare automaticamente il cliente od il fornitore su Google Maps.</h3>
             Semplicemente facendo clic sull'omonimo pulsante:<br>
             <img src="clienti_maps.jpg" alt="Google maps"><br>
-            verr&agrave; lanciato Google Maps posizionato sulla localit&agrave; del nominativo attualmente visulizzato.
+            verr&agrave; lanciato Google Maps posizionato sulla localit&agrave; del nominativo attualmente visualizzato.
             I dati del nominativo devono essere naturalmente descritti con esattezza ed il PC su cui si lavora deve avere accesso ad internet con un browser adeguato.
             </li>
 
